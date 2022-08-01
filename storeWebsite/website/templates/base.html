@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block title %}<title>Gurmano Sypsnys</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">-->
+  <!-- Add additional CSS in static file -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+</head>
+{% load static %}
+<body >
+  <header>
+    <div class="logo-menu">
+      <div><img src="{% static 'images/logo.png' %}" alt="Girl in a jacket"></div>
+    </div>
+    <img src="{% static '/images/menu.png' %}" class="menu-button" alt="*" onclick="openMenu()" />
+    <ul class="ul-align" id="ulAlign">
+      <img src="{% static '/images/close.png' %}" class="close-button" alt="*" onclick="closeMenu()" />
+      <li class="left-btn"><a href="">Sveiki atvyke</a></li>
+      <li class="left-btn"><a href="#about_us_jump">Apie mus</a></li>
+      <li class="middle-btn"><a href="">Produkcija</a></li>
+      <li class="right-btn"><a href="">Receptai</a></li>
+      <li class="right-btn"><a href="">Kontaktai</a></li>
+    </ul>
+  </header>
+  <div style="background-image: url({% static 'images/background.jpg' %});"
+  class="webpage-background">
+    <div class="main-block">
+    {% block content %}{% endblock %}
+    </div>
+  </div>
+  <footer>
+    <h1>Kontaktai</h1>
+    <div class="contact-block">
+    {% block footer %}{% endblock %}
+      <div>
+        {% if contact_us %}
+        <div>
+          <h2>Mus rasite:</h2>
+          <ul>
+          {% for item in contact_us %}
+
+            <li>{{ item }}</li>
+            {% endfor %}
+            </ul>
+          </div>
+          {% else %}
+          <p>nera teksto</p>
+        {% endif %}
+        <div class="follow-us-footer">
+          <p>Sekite mus: </p>
+          <img src="{% static '/images/facebook_logo.png' %}" class="facebook-footer-logo" alt="*" />
+        </div>
+      </div>
+    {% if websiteinfo %}
+        <iframe src="{{ websiteinfo.google_maps_link }}" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    {% else %}
+    <p>nera zemelapio nuorodos!</p>
+  {% endif %}
+    </div>
+
+  </footer>
+<script src="{% static 'js/js.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Raleway:ital@1&display=swap');
+
+*{
+    margin:                 0;
+    padding:                0;
+    scroll-behavior: smooth;
+}
+
+body {
+
+    min-height:             100vh;
+    width:                  100%;
+    margin:                 0px;
+    background-color:       gray;
+    font-family:            'Raleway', sans-serif;
+
+}
+
+/* headerio CSS*/
+
+header {
+    margin-top:      -155px;
+    display:         block;
+    width:           100%;
+    position: fixed;
+    z-index:1;
+    align-items:     center;
+    justify-content: center;
+    background-color:#25221E;
+}
+
+header .logo-menu{
+    display:flex;
+    justify-content:center;
+}
+header img{
+    margin:    auto;
+}
+
+.ul-align{
+    display:flex;
+    width: 100%;
+    justify-content:center;
+}
+
+header li {
+    list-style-type: none;
+    margin-top:     0px;
+    padding-right:  20px;
+    padding-left:   20px;
+    padding-top:    10px;
+    padding-bottom: 10px;
+    transition:     1s;
+}
+
+header li a{
+    color:          white;
+    text-decoration: none;
+}
+
+header li:hover{
+    background-color:white;
+    opacity:0.5;
+    color:gray;
+    cursor: pointer;
+}
+/* option not to display close and menu button on bigger screen*/
+.close-button, .menu-button{
+    display:     none;
+    cursor:pointer;
+}
+
+
+
+.left-btn {
+  border-top:    2px solid white;
+  border-bottom: 2px solid white;
+  border-right:  2px solid white;
+}
+
+.right-btn {
+  border-top:    2px solid white;
+  border-bottom: 2px solid white;
+  border-left:   2px solid white;
+}
+
+.middle-btn {
+  border-top:    2px solid white;
+  border-bottom: 2px solid white;
+}
+
+@media(max-width: 700px){
+    .ul-align{
+        font-size:10px;
+        display:block;
+        padding-right:15px;
+        position:absolute;
+        background-color:#25221E;
+        text-align: right;
+        top: 0;
+        left: 0;
+        left: -200px;
+        height: 100vh;
+        width:200px;
+    }
+
+    .left-btn, .right-btn, .middle-btn{
+        border:none;
+    }
+
+    .close-button{
+        display:inline-block;
+    }
+
+    .menu-button{
+        display:block;
+    }
+
+    .logo-menu{
+
+    }
+
+}
+/* Main webpage css*/
+
+.webpage-background{
+  display: flex;
+  background-size: cover;
+  width: 100%;
+  justify-content: center;
+  margin-top:               155px;
+  background-color:         #000;
+  opacity:                  .7;
+  background-position:      center;
+  background-repeat:        no-repeat;
+}
+
+@media(max-width: 700px){
+    header {
+         margin-top:            -138px;
+    }
+    .webpage-background{
+         margin-top:             138px;
+    }
+}
+
+.main-block{
+    width: 80%;
+    height: auto;
+    max-width:800px;
+    margin-bottom:30px;
+}
+
+.main-block video{
+    padding-top:20px;
+    width:100%;
+}
+
+.main-block h1{
+    padding-top:20px;
+    padding-bottom:15px;
+    text-align: center;
+    color:white;
+}
+
+/* About us block */
+
+.about-us-block{
+    display:grid;
+    grid-template-columns: 6fr 1fr;
+    color:white;
+    background:rgba(128,128,128, 0.7);
+    border-radius: 5px;
+
+}
+.about-us-block h1{
+    grid-column: span 2;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+.about-us-block p{
+    grid-column: span 2;
+    font-size:20px;
+    margin: 20px;
+    margin-top:15px;
+    text-align:justify;
+    height:237px;
+    display:inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.about-us-block .about-us-button{
+
+    grid-column: 2;
+    padding: 4px;
+    margin: 8px;
+    border-top:    2px solid white;
+    border-bottom: 2px solid white;
+    border-left:   2px solid white;
+    width: fit-content;
+    transition:     1s;
+}
+
+.about-us-block .about-us-button:hover{
+    background-color:white;
+    opacity:0.5;
+    color:gray;
+    cursor: pointer;
+    }
+
+@media(max-width: 700px){
+    .about-us-block{
+        display:none;
+    }
+}
+
+/* item list and recipes css*/
+
+.scroll-item-block{
+  overflow-y: hidden;
+  padding-top: 10px;
+  display: grid;
+  grid-template-rows: min-content;
+  gap: 8px;
+  grid-auto-flow: column;
+  grid-auto-columns: 23%;
+  cursor: pointer;
+  overflow-x:auto;
+  overscroll-behavior-inline: contain;
+
+  scroll-snap-type: inline mandatory;
+}
+
+.scroll-item-block::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll-item-block .single-item-block{
+    color:white;
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 3fr 3fr 0.7fr;
+
+    padding: 5px;
+    gap: 5px;
+    height: 200px;
+    background:rgba(128,128,128, 0.7);
+    border-radius: 5px;
+    box-shadow: var(--shadow-2);
+
+    scroll-snap-align: start;
+}
+
+.scroll-item-block h2{
+    grid-column: span 2;
+    text-align:center;
+}
+
+.scroll-item-block img{
+    grid-column: span 2;
+    inline-size:100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.scroll-item-block .item-descr{
+    grid-column: span 2;
+    margin-left:3%;
+    width:100%;
+    text-align:center;
+    overflow: hidden;
+}
+
+.scroll-item-block .more{
+    align-self: end;
+    height: fit-content;
+    padding:2px;
+    font-size: 10px;
+    grid-column: 2;
+    border-top:    2px solid white;
+    border-bottom: 2px solid white;
+    border-left:   2px solid white;
+    width: fit-content;
+    transition:     1s;
+}
+
+.scroll-item-block .more:hover{
+    background-color:white;
+    opacity:0.5;
+    color:gray;
+}
+
+@media(max-width: 700px){
+    .scroll-item-block{
+        grid-auto-columns: 30%;
+    }
+}
+
+/* recipes css */
+
+/* footer css */
+
+footer {
+   bottom:0;
+   height:auto;   /* Height of the footer */
+   background-color:#25221E;
+}
+
+footer h1{
+    padding-top:20px;
+    padding-bottom:15px;
+    text-align: center;
+    color:white;
+}
+
+.contact-block{
+    width: 80%;
+    display: flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:30px;
+    color:white;
+    margin-left:auto;
+    margin-right:auto;
+    padding-bottom: 40px;
+}
+
+.contact-block h2{
+    font-size: 25px;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+.contact-block ul{
+    padding-bottom:10px;
+}
+
+.contact-block li{
+    list-style:none;
+    font-size:15px;
+}
+
+.contact-block .follow-us-footer{
+    display:inline-flex;
+    gap:20px;
+}
+
+.contact-block .facebook-footer-logo{
+    height:20px;
+    width:20px;
+    cursor:pointer;
+}
+.contact-block iframe{
+    font-size:25px;
+    padding-top:20px;
+}
+
+
+
+
