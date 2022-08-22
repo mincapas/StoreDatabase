@@ -16,6 +16,11 @@ body {
 
 }
 
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
+
 /* headerio CSS*/
 
 header {
@@ -123,7 +128,12 @@ header li:hover{
 }
 /* Main webpage css*/
 
+.jump-control{
+    scroll-margin-block-start: 145px;
+}
+
 .webpage-background{
+  min-height:inherit;
   display: flex;
   background-size: cover;
   width: 100%;
@@ -190,7 +200,7 @@ header li:hover{
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
+/* not implemented, but can add a pretty button for about us page */
 .about-us-block .about-us-button{
 
     grid-column: 2;
@@ -209,6 +219,7 @@ header li:hover{
     color:gray;
     cursor: pointer;
     }
+/*--------------------------------*/
 
 @media(max-width: 700px){
     .about-us-block{
@@ -241,7 +252,7 @@ header li:hover{
     color:white;
     display:grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr 3fr 3fr 0.7fr;
+    grid-template-rows: 2fr 3fr 0.7fr;
 
     padding: 5px;
     gap: 5px;
@@ -249,17 +260,24 @@ header li:hover{
     background:rgba(128,128,128, 0.7);
     border-radius: 5px;
     box-shadow: var(--shadow-2);
-
+    align-items:center;
     scroll-snap-align: start;
+}
+.scroll-item-block a{
+    text-decoration: none;
+    color:white;
 }
 
 .scroll-item-block h2{
     grid-column: span 2;
     text-align:center;
+    vertical-align: middle;
+    font-size:2vh;
 }
 
 .scroll-item-block img{
     grid-column: span 2;
+    align-self:end;
     inline-size:100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
@@ -357,6 +375,186 @@ footer h1{
     padding-top:20px;
 }
 
+.contact-block .leave-review{
+    margin-top:15px;
+    padding:5px;
+    border-top:    2px solid white;
+    border-bottom: 2px solid white;
+    border-left:   2px solid white;
+    transition:     1s;
+}
+.contact-block .leave-review:hover{
+    background-color:white;
+    opacity:0.5;
+    color:gray;
+    cursor: pointer;
+}
 
+.contact-block .leave-review a{
+    color:white;
+}
 
+/*  Single item page html css  */
 
+.single-item-page{
+}
+
+.single-item-page h1{
+    width:100%;
+    padding: 20px;
+    background: rgba(128,128,128, 0.7);
+    border-radius: 5px;
+    margin-bottom:5px;
+    margin-top:5px;
+
+}
+
+.single-item-page img{
+    width:100%;
+    background: rgba(128,128,128, 0.7);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.single-item-page p{
+    color: white;
+    background: rgba(128,128,128, 0.7);
+    border-radius: 5px;
+    box-shadow: var(--shadow-2);
+    min-height: 100px;
+    width:100%;
+    padding: 20px;
+}
+
+/*  Single recipe item page html css  */
+
+.single-recipe-page{
+
+}
+
+.single-recipe-page h1{
+    background: rgba(128,128,128, 0.7);
+    width:100%;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom:5px;
+    margin-top:5px;
+}
+
+.single-recipe-page img{
+    min-height: 100px;
+    width:100%;
+    object-fit: cover;
+    aspect-ratio:16/9;
+    background: rgba(128,128,128, 0.7);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.single-recipe-page p{
+    color: white;
+    background: rgba(128,128,128, 0.7);
+    border-radius: 5px;
+    box-shadow: var(--shadow-2);
+    min-height: 100px;
+    width:100%;
+    padding: 20px;
+}
+/* Contact us css */
+
+.contact-us-page{
+    color: white;
+    background: rgba(128,128,128, 0.7);
+    border-radius: 5px;
+    display:block;
+    text-align: center;
+}
+
+.contact-us-page h3{
+    padding-top:4px;
+    margin-top:15px;
+}
+
+.contact-us-page form{
+    margin:8px;
+    display:grid;
+    text-align: left;
+}
+
+.contact-us-page input, textarea{
+    padding:5px;
+    border-radius:5px;
+    background-color: lightgray;
+}
+
+.contact-us-page .name-box{
+    width:300px;
+}
+
+.contact-us-page .email-box{
+    width:400px;
+}
+
+.contact-us-page .phone-number-box{
+    width:250px;
+}
+
+.contact-us-page button{
+    font-family:'Raleway', sans-serif;
+    color:white;
+    background:none;
+    padding: 4px;
+    margin: 8px;
+    border-top:    2px solid white;
+    border-bottom: 2px solid white;
+    border-left:   2px solid white;
+    border-right:    none;
+    width: fit-content;
+    transition:     1s;
+}
+
+.contact-us-page button:hover{
+    background-color:white;
+    opacity:0.5;
+    color:gray;
+    cursor: pointer;
+}
+
+/* thanks you css */
+
+.thanks-page{
+    color: white;
+    background: rgba(128,128,128, 0.7);
+    text-align:center;
+    padding:10px;
+    border-radius:5px;
+
+}
+
+.thanks-page a{
+    font-size: 25px;
+    padding:5px;
+    color:white;
+    border-top:    2px solid white;
+    border-bottom: 2px solid white;
+    border-left:   2px solid white;
+    transition:     1s;
+}
+
+.thanks-page a:hover{
+    background-color:white;
+    opacity:0.5;
+    color:gray;
+    cursor: pointer;
+
+}
+
+/* about us page css */
+
+.about-us {
+    color: white;
+    background: rgba(128,128,128, 0.7);
+    text-align:center;
+    padding:10px;
+    border-radius:5px;
+}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div >
+        <h3>palikite atsiliepimą arba susisiekite su mumis</h3><br/>
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                <label for="name">Jūsų vardas</label>
+                <input name="name" type="text" id="name" aria-describedby="usernameHelp">
+                <small id="usernameHelp">Iki 30 simbolių.</small>
+            </div>
+            <div>
+                <label for="email">El. paštas</label>
+                <input name="email" type="email" id="email" aria-describedby="emailHelp">
+                <small id="emailHelp">Palikite šį email, jeigu norite gauti atsakymą elektroniniu paštu </small>
+            </div>
+            <div>
+                <label for="phone_number">Telefono numeris</label>
+                <input name="phone_number" type="text" id="phone_number" aria-describedby="phonenumberHelp">
+                <small id="phoneNumberHelp">Palikite telefoną, kuriuo galėtume su jumis susisiekti </small>
+            </div>
+            <div>
+                <label for="text">Atsiliepimas arba žinutė mums</label>
+                <input name="text" type="text" id="text" aria-describedby="reviewHelp">
+                <small id="reviewHelp">Įrašykite savo atsiliepimą arba klausimą mums :) </small>
+
+            </div>
+            <p type="submit">Palikti atsiliepimą</p>
+        </form>
+    </div>
+{% endblock %}

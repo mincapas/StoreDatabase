@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% load static %}
+    <video controls>
+  <source src="{% static '/images/gurmanovideo.mp4' %}" type="video/mp4">
+  Your browser does not support the video tag.
+  </video>
+  {% if websiteinfo %}
+    <div  class="about-us">
+        <h1 > {{ websiteinfo.name_field1 }}</h1>
+        <p > {{ websiteinfo.text_field1 }}</p>
+    </div>
+  {% else %}
+    <p>nera teksto</p>
+  {% endif %}
+{% endblock %}

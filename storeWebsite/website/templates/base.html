@@ -21,11 +21,11 @@
     <img src="{% static '/images/menu.png' %}" class="menu-button" alt="*" onclick="openMenu()" />
     <ul class="ul-align" id="ulAlign">
       <img src="{% static '/images/close.png' %}" class="close-button" alt="*" onclick="closeMenu()" />
-      <li class="left-btn"><a href="">Sveiki atvyke</a></li>
-      <li class="left-btn"><a href="#about_us_jump">Apie mus</a></li>
-      <li class="middle-btn"><a href="">Produkcija</a></li>
-      <li class="right-btn"><a href="">Receptai</a></li>
-      <li class="right-btn"><a href="">Kontaktai</a></li>
+      <li class="left-btn"><a href="{% url 'index' %}#welcome_jump">Sveiki atvyke</a></li>
+      <li class="left-btn"><a href="{% url 'about' %}">Apie mus</a></li>
+      <li class="middle-btn"><a href="{% url 'index' %}#products_jump">Produkcija</a></li>
+      <li class="right-btn"><a href="{% url 'index' %}#recipes_jump">Receptai</a></li>
+      <li class="right-btn"><a href="{% url 'index' %}#contacts_jump">Kontaktai</a></li>
     </ul>
   </header>
   <div style="background-image: url({% static 'images/background.jpg' %});"
@@ -35,9 +35,8 @@
     </div>
   </div>
   <footer>
-    <h1>Kontaktai</h1>
+    <h1 id="contacts_jump" class="jump-control">Kontaktai</h1>
     <div class="contact-block">
-    {% block footer %}{% endblock %}
       <div>
         {% if contact_us %}
         <div>
@@ -52,18 +51,22 @@
           {% else %}
           <p>nera teksto</p>
         {% endif %}
+        {% if websiteinfo %}
         <div class="follow-us-footer">
           <p>Sekite mus: </p>
-          <img src="{% static '/images/facebook_logo.png' %}" class="facebook-footer-logo" alt="*" />
+          <a href="{{ websiteinfo.facebook_page_link }}"><img src="{% static '/images/facebook_logo.png' %}" class="facebook-footer-logo" alt="*" /></a>
         </div>
+        <div class="leave-review"><a href="{% url 'review' %}"> Palikite atsiliepimą!</a></div>
       </div>
+        {% endif %}
     {% if websiteinfo %}
         <iframe src="{{ websiteinfo.google_maps_link }}" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
     {% else %}
     <p>nera zemelapio nuorodos!</p>
-  {% endif %}
+    {% endif %}
     </div>
+
 
   </footer>
 <script src="{% static 'js/js.js' %}"></script>

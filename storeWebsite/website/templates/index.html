@@ -3,32 +3,31 @@
 {% block content %}
 <!--   video part   -->
   {% load static %}
-  <video id ="about_us_jump" controls>
+  <div class="jump-control" id="welcome_jump"></div>
+  <video controls>
   <source src="{% static '/images/gurmanovideo.mp4' %}" type="video/mp4">
   Your browser does not support the video tag.
   </video>
-  <div ></div>
 <!--      About us part    -->
   {% if websiteinfo %}
-    <div  class="about-us-block">
+    <div  class="about-us-block jump-control" id ="about_us_jump">
         <h1 > {{ websiteinfo.name_field1 }}</h1>
         <p > {{ websiteinfo.text_field1 }}</p>
-      <div class="about-us-button">Placiau...</div>
+      <div class="about-us-button">Plačiau...</div>
     </div>
   {% else %}
     <p>nera teksto</p>
   {% endif %}
 
 <!--   item list part!    -->
-  <h1>Produktai</h1>
+  <h1 class="jump-control" id="products_jump">Produktai</h1>
   {% if storeitems %}
     <div class="scroll-item-block" id="storeItemBlock">
       {% for item in storeitems %}
       <div class="single-item-block">
         <h2> {{ item.name }}</h2>
         <img src="{{ item.picture.url }}" alt="......">
-        <p class="item-descr"> {{ item.description }}</p>
-        <p class="more"> placiau... </p>
+        <p class="more" ><a href="{% url 'single_store_item' item.id%}">  plačiau... </a></p>
       </div>
       {% endfor %}
     </div>
@@ -37,20 +36,19 @@
   {% endif %}
 
 <!--   recipes part!    -->
-  <h1>Receptai</h1>
+  <h1 class="jump-control" id="recipes_jump">Receptai</h1>
   {% if recipeitems %}
     <div class="scroll-item-block" id="recipeBlock">
       {% for item in recipeitems %}
       <div class="single-item-block">
         <h2> {{ item.name }}</h2>
         <img alt="......" src="{{ item.picture.url }}">
-        <p class="item-descr"> {{ item.text }}</p>
-        <p class="more"> perziureti </p>
+        <p class="more" ><a href="{% url 'single_recipe' item.id%}">  plačiau... </a></p>
       </div>
       {% endfor %}
     </div>
   {% else %}
-    <p>nera rodomu prekiu</p>
+    <p>nera rodomu receptu</p>
   {% endif %}
 
 {% endblock %}

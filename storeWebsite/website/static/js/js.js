@@ -1,6 +1,5 @@
 
-
-//makes menu appear when click on meu image
+//makes menu appear when click on menu image
 var ulAlign = document.getElementById("ulAlign");
 
 function openMenu(){

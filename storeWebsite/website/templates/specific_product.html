@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="single-item-page">
+  <h1>{{ storeitem.name }}</h1>
+  <img src="{{ storeitem.picture.url }}" alt="......">
+  <p> {{ storeitem.description }}</p>
+  </div>
+
+
+<!--        related recipe list     -->
+  <h1 class="jump-control" id="recipes_jump">Receptai</h1>
+  {% if recipe_items %}
+    <div class="scroll-item-block" id="recipeBlock">
+      {% for item in recipe_items %}
+      <div class="single-item-block">
+        <h2> {{ item.name }}</h2>
+        <img alt="......" src="{{ item.picture.url }}">
+        <p class="more" ><a href="{% url 'single_recipe' item.id%}">  placiau... </a></p>
+      </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>nera rodomu receptu</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="contact-us-page">
+        <h3>Palikite atsiliepimą arba susisiekite su mumis!</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Palikti atsiliepimą..</button>
+        </form>
+    </div>
+{% endblock %}

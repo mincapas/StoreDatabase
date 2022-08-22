@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CustomerCompany, Supplier, StoreItem, WebsiteInfo, RecipesItem
+from .models import CustomerCompany, Supplier, StoreItem, WebsiteInfo, RecipesItem, Review
 
 
 class CustomerCompanyAdmin(admin.ModelAdmin):
@@ -24,9 +24,12 @@ class RecipesItemAdmin(admin.ModelAdmin):
     list_editable = ('show',)
     search_fields = ('name','get_related_products', 'show')
 
+class ReviewItemAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'date_created', 'phone_number')
 
 admin.site.register(CustomerCompany, CustomerCompanyAdmin)
 admin.site.register(Supplier, SupplierAdmin)
 admin.site.register(StoreItem, StoreItemAdmin)
 admin.site.register(RecipesItem, RecipesItemAdmin)
+admin.site.register(Review, ReviewItemAdmin)
 admin.site.register(WebsiteInfo)
