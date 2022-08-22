@@ -13,7 +13,7 @@
     <div  class="about-us-block jump-control" id ="about_us_jump">
         <h1 > {{ websiteinfo.name_field1 }}</h1>
         <p > {{ websiteinfo.text_field1 }}</p>
-      <div class="about-us-button">Plačiau...</div>
+      <div class="about-us-button"><a href="{% url 'about' %}">Plačiau...</a></div>
     </div>
   {% else %}
     <p>nera teksto</p>

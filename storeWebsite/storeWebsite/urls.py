@@ -22,7 +22,7 @@ from django.views.generic import RedirectView
 
 urlpatterns = [
     # website views
-    path('website/', include('website.urls')),
+    path('', include('website.urls')),
     # database views
     path('storeDatabase/', include('storeDatabase.urls')),
     # kad i puslapi eitu tieisog per /
