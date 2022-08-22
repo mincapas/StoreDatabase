@@ -8,7 +8,7 @@ urlpatterns = [
     path('atsiliepimai/', views.ContactView.as_view(), name='review'),
     path('atsiliepimai/aciu/', views.ThanksView.as_view(), name='thanks'),
     path('apiemus/', views.AboutUsView.as_view(), name='about'),
-    path('index/', views.IndexView.as_view(), name='index'),
+    path('', views.IndexView.as_view(), name='index'),
 
 
 ]
